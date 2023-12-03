@@ -13,7 +13,6 @@ int tios_fd = -1;
 
 int writekey(unsigned int code, int value) {
     int err;
-    printf("%d %d\n", code, value);
     if ((err = libevdev_uinput_write_event(uidev, EV_KEY, code, value))) {
         fprintf(stderr, "libevdev_uinput_write_event(uidev, EV_KEY, %d, %d: %s\n", code, value, strerror(-err));
         return 1;
